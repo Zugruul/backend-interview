@@ -1,0 +1,14 @@
+{
+	"configurations": [
+		{
+			"name": "docker: Attach Debugger",
+			"type": "node",
+			"request": "attach",
+			"port": 9229,
+			"address": "localhost",
+			"localRoot": "${workspaceFolder}",
+			"remoteRoot": "/app",
+			"restart": true
+		}
+	]
+}

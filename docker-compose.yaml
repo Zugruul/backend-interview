@@ -1,0 +1,14 @@
+services:
+    app:
+        build:
+            context: .
+            dockerfile: dev.Dockerfile
+        volumes:
+            - .:/app
+            - /app/node_modules
+        command: pnpm dev
+        ports:
+            - '3000:3000'
+            - '9229:9229'
+        environment:
+            - NODE_ENV=development

@@ -1,0 +1,24 @@
+meta {
+  name: waiting
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{BACKEND_INTERVIEW_BASE_URL}}/waitlist
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "count": 10,
+    "lowBehaviorCount": 1,
+    "facility": {
+      "latitude": "-32.6156",
+      "longitude": "131.6695"
+    },
+    "averageLowBehaviorThreshold": 0.3,
+    "debug": false
+  }
+}
