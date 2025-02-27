@@ -31,7 +31,7 @@ To run the API, you have two options: use Docker Compose or running it directly 
 
 #### Running Without Docker
 
-1. Ensure you have [Node.js](https://nodejs.org/) and [pnpm](https://pnpm.io/) installed on your machine.
+1. Ensure you have [Node.js](https://nodejs.org/) and [pnpm](https://pnpm.io/) installed on your machine. Refer to the node version in [.nvmrc](./.nvmrc):
 2. Install the dependencies:
     ```sh
     pnpm install
