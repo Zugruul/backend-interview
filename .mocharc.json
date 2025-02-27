@@ -2,5 +2,6 @@
 	"extensions": ["ts"],
 	"reporter": "spec",
 	"spec": ["**/*.spec.ts"],
-	"require": "ts-node/register"
+	"require": "ts-node/register",
+	"config": "tsconfig.test.json"
 }
