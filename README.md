@@ -84,6 +84,15 @@ curl --request POST \
 }'
 ```
 
+### Building the Library
+
+To build the library is fairly simple:
+
+1. Make sure you have installed dependencies through `pnpm i`
+2. Run `pnpm build`
+
+By default the api server uses the `src/` as to facilitate debugging. No setup for a production build was made. But simply changing `import { computeWaitlist } from '../../src';` [here](./app/controllers/waitlist.controller.ts) to `import { computeWaitlist } from '../../lib` does the trick of testing with the production output. Considerations on this would be to setup a simple monorepo using pnpm.
+
 ## Specification
 
 In this section you can find the original specification for the Backend Interview

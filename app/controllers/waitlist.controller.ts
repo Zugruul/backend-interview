@@ -1,7 +1,5 @@
 import type { Request, Response } from 'express';
-import {
-	computeWaitlist,
-} from '../../src';
+import { computeWaitlist } from '../../src';
 import { getProspectPatientsList } from '../services/prospect-patients.service';
 
 export const handleWaitlist = async (req: Request, res: Response) => {
