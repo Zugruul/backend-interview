@@ -2,9 +2,91 @@
 
 ## Documentation
 
----
+### Technologies Used
+
+- [Node.js](https://nodejs.org/) is a free, open-source, cross-platform JavaScript runtime environment that lets developers create servers, web apps, command line tools and scripts;
+- [TypeScript](https://www.typescriptlang.org/) is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale;
+- [Express.js](https://expressjs.com/) is a fast, unopinionated, minimalist web framework for Node.js;
+- [Mocha](https://mochajs.org/) Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser;
+- [Chai](https://www.chaijs.com/): Chai is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework;
+- [pnpm](https://pnpm.io/) is a fast, disk space efficient package manager;
+- [Docker](https://www.docker.com/) is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers;
+- [Docker Compose](https://docs.docker.com/compose/) is a tool for defining and running multi-container Docker applications;
+- [ESLint](https://eslint.org/) statically analyzes your code to quickly find problems;
+- [Prettier](https://prettier.io/) is an opinionated code formatter with support to many languages that integrates with most editors;
+- [Bruno](https://usebruno.com/) is a Git-integrated, fully offline, and open-source API client.
+
+### Running the project
+
+To run the API, you have two options: use Docker Compose or running it directly without Docker.
+
+#### Using Docker Compose
+
+1. Ensure you have Docker and Docker Compose installed on your machine.
+2. Build and start the containers:
+    ```sh
+    docker-compose up --build
+    ```
+3. The API should now be running and accessible at `http://localhost:3000`.
+
+#### Running Without Docker
+
+1. Ensure you have [Node.js](https://nodejs.org/) and [pnpm](https://pnpm.io/) installed on your machine.
+2. Install the dependencies:
+    ```sh
+    pnpm install
+    ```
+3. Start the API:
+    ```sh
+    pnpm start
+    ```
+4. The API should now be running and accessible at `http://localhost:3000`.
+
+### Testing the API
+
+#### Parameters
+
+The API exposes a two edges `POST /waitlist` and `GET /health`. The later is just a simple health check and can be ignored. The former has the following `body` parameters that can be changed:
+
+- `count`: total number of prospect patients that will be returned;
+- `lowBehaviorCount`: number of prospect patients that will be randomly moved to the top of the waitlist;
+- `facility`: Geographical coordinates (latitude and longitude) of a facility;
+- `averageLowBehaviorThreshold`: threshold value for what is considered "low behavior." It uses the average score of a given behavior score. Example: with a `averageLowBehaviorThreshold` of 1 any value bellow average is considered low behavior, while with a `averageLowBehaviorThreshold` of 0.5 bellow half that will be considered instead;
+- `debug`: makes so that the patients also include the computational values used to calculate the final score within the waitlist.
+
+For examples, see the sections below: [Using Bruno](#using-bruno) and [Using cURL](#using-curl).
+
+#### Using Bruno
+
+1. Make sure you are running the application. Refer to the [Running the project](#running-the-project) section.
+2. Open [Bruno](https://usebruno.com/) and create a `Open Collection`.
+   ![](./docs/bruno--open-collection.png)
+3. Select the `POST waitlist` Request:
+4. Send the request and verify the response.
+
+#### Using cURL
+
+Alternatively you can use curl from within your terminal:
+
+```sh
+curl --request POST \
+  --url http://localhost:3000/waitlist \
+  --header 'content-type: application/json' \
+  --data '{
+  "count": 10,
+  "lowBehaviorCount": 1,
+  "facility": {
+	"latitude": "-32.6156",
+	"longitude": "131.6695"
+  },
+  "averageLowBehaviorThreshold": 0.3,
+  "debug": true
+}'
+```
 
 ## Specification
+
+In this section you can find the original specification for the Backend Interview
 
 ### Problem Definition
 
