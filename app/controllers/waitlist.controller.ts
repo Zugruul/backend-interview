@@ -2,7 +2,7 @@ import type { Request, Response } from 'express';
 import {
 	computeWaitlist,
 } from '../../src';
-import { getProspectPatientsList } from '../services/waitlist.service';
+import { getProspectPatientsList } from '../services/prospect-patients.service';
 
 export const handleWaitlist = async (req: Request, res: Response) => {
 	try {
