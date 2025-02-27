@@ -18,11 +18,11 @@
 
 ### Running the project
 
-To run the API, you have two options: use Docker Compose or running it directly without Docker.
+To run the API, you have two options: use [Docker Compose](https://docs.docker.com/compose/) or to run it using your local [Node.js](https://nodejs.org/) installation.
 
 #### Using Docker Compose
 
-1. Ensure you have Docker and Docker Compose installed on your machine.
+1. Ensure you have [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/) installed on your machine.
 2. Build and start the containers:
     ```sh
     docker-compose up --build
